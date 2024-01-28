@@ -50,8 +50,9 @@ def save_repo_data(org_name:str, repo_name:str, repository_data:str) -> None:
         repo_name (str): repository name
         repository_data (str): _description_
     """
+    
     org_folder = f"{org_name}"
-    repo_folder = f"{org_name}/{repo_name}"
+    repo_folder = f"{org_name}/repos/{repo_name}"
 
     if not os.path.exists(org_folder):
         os.makedirs(org_folder)
@@ -62,8 +63,6 @@ def save_repo_data(org_name:str, repo_name:str, repository_data:str) -> None:
     file_path = f"{repo_folder}/data.json"
     with open(file_path, 'w') as json_file:
         json.dump(repository_data, json_file, indent=4)
-
-
 
 for repo in repositories:
     repo_name = repo.name
