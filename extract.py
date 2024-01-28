@@ -11,7 +11,8 @@ repositories = org.get_repos()
 
 
 
-def get_repo_data(repo):
+def get_repo_data(repo:str):
+    
     repo_data ={"org": repo.full_name,
                 "name":repo.name ,
                 "id": repo.id, 
