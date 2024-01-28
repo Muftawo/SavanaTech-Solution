@@ -8,8 +8,11 @@ spark = SparkSession.builder.appName("ScytaleTransform").getOrCreate()
 
 # Read  all JSON files into a  pyspark DataFrame
 org_name = 'Scytale-exercise'
-json_files_path = [os.path.join(org_name, repo_name, 'data.json') for repo_name in os.listdir(org_name)]
-df = spark.read.option("multiline","true").json(json_files_path)
+
+base_dir= f"{org_name}/repos/"
+json_files_path = [os.path.join(base_dir, repo_name, 'data.json') for repo_name in os.listdir(base_dir)]
+df = spark.read.json(json_files_path,multiLine=True)
+
 
 # start data transformation
 df_transformed = df.select(
