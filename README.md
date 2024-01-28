@@ -58,3 +58,8 @@ The solution to the project was split in to 2 python files `extract.py` and `tra
 
 2. `transform.py` reads all the the saved json data apply the need transformations per the description and saves the reuslting dataframe to as a parquet file.
 
+
+## Additional Notes
+For repos with no merged PRs, merged at is recorded as -1. 
+
+
