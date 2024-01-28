@@ -8,8 +8,9 @@ spark = SparkSession.builder.appName("ScytaleTransform").getOrCreate()
 
 # Read  all JSON files into a  pyspark DataFrame
 org_name = 'Scytale-exercise'
-
 base_dir= f"{org_name}/repos/"
+
+# get all data.json paths in a list and read into dataframe
 json_files_path = [os.path.join(base_dir, repo_name, 'data.json') for repo_name in os.listdir(base_dir)]
 df = spark.read.json(json_files_path,multiLine=True)
 
@@ -20,9 +21,10 @@ df_transformed = df.select(
     F.col("id").alias("repository_id"),
     F.col("name").alias("repo Name"),
     F.col("login").alias("repository_owner"),
+    #size of list is equal to nuber of prs
     F.size("pull_requests").alias("num_prs"),
+    #count number of merges prs
     F.size(F.expr("filter(pull_requests, pr -> pr.state == 'merged')")).alias("num_prs_merged"),
-       
 )
 
 #add is_complaint field
