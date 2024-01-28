@@ -1,20 +1,17 @@
-
+import os
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
 
 
-
-
-# Spark session
+# start Spark session
 spark = SparkSession.builder.appName("ScytaleTransform").getOrCreate()
 
-# Read JSON files into a DataFrame
+# Read  all JSON files into a  pyspark DataFrame
 org_name = 'Scytale-exercise'
-repo_data_path = f"/content/Scytale-exercise/scytale-repo3/data.json"
-df = spark.read.json(repo_data_path, multiLine=True)
+json_files_path = [os.path.join(org_name, repo_name, 'data.json') for repo_name in os.listdir(org_name)]
+df = spark.read.option("multiline","true").json(json_files_path)
 
-
-# Extract relavant data
+# start data transformation
 df_transformed = df.select(
     F.col("name").alias("Organization Name"),
     F.col("id").alias("repository_id"),
@@ -31,5 +28,8 @@ df_transformed = df_transformed.withColumn(
     (F.col("num_prs") == F.col("num_prs_merged")) & (F.col("repository_owner").contains("scytale")),
 )
 
+#save resulting data as a parquet
+parquet_output_path = f"{org_name}/solution"
+df_transformed.write.parquet(parquet_output_path)
 
 spark.stop()
