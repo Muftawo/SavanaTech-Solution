@@ -5,16 +5,16 @@ from pyspark.sql import functions as F
 
 
 
-# Create a Spark session
+# Spark session
 spark = SparkSession.builder.appName("ScytaleTransform").getOrCreate()
 
 # Read JSON files into a DataFrame
-org_name = "your_org_name"  # Replace with your organization name
+org_name = 'Scytale-exercise'
 repo_data_path = f"/content/Scytale-exercise/scytale-repo3/data.json"
 df = spark.read.json(repo_data_path, multiLine=True)
 
 
-# Extract relevant information from the JSON structure
+# Extract relavant data
 df_transformed = df.select(
     F.col("name").alias("Organization Name"),
     F.col("id").alias("repository_id"),
@@ -25,12 +25,11 @@ df_transformed = df.select(
 
 )
 
-
+#add is_complaint field
 df_transformed = df_transformed.withColumn(
     "is_compliant",
     (F.col("num_prs") == F.col("num_prs_merged")) & (F.col("repository_owner").contains("scytale")),
 )
 
 
-# Stop the Spark session
 spark.stop()
