@@ -11,8 +11,15 @@ repositories = org.get_repos()
 
 
 
-def get_repo_data(repo:str):
-    
+def get_repo_data(repo:str) -> dict:
+    """This function retreives all data from a public github repository passed to it 
+
+    Args:
+        repo (str): name of the github repository 
+
+    Returns:
+        dict: contain key data about the repository and all pull request submmited. 
+    """
     repo_data ={"org": repo.full_name,
                 "name":repo.name ,
                 "id": repo.id, 
@@ -33,7 +40,16 @@ def get_repo_data(repo:str):
     
     return repo_data
 
-def save_repo_data(org_name, repo_name, pull_requests_data):
+def save_repo_data(org_name:str, repo_name:str, repository_data:str) -> None:
+    """saves data of a repository to a respective data path, each repository gets its own sub directory.
+       dir structure 
+       Orgnaization -|--repo--data.json
+                    -|--repo--data.json
+    Args:
+        org_name (str): github organization name
+        repo_name (str): repository name
+        repository_data (str): _description_
+    """
     org_folder = f"{org_name}"
     repo_folder = f"{org_name}/{repo_name}"
 
@@ -45,11 +61,11 @@ def save_repo_data(org_name, repo_name, pull_requests_data):
 
     file_path = f"{repo_folder}/data.json"
     with open(file_path, 'w') as json_file:
-        json.dump(pull_requests_data, json_file, indent=4)
+        json.dump(repository_data, json_file, indent=4)
 
 
 
 for repo in repositories:
     repo_name = repo.name
-    pull_requests_data = get_repo_data(repo)
-    save_repo_data(org_name, repo_name, pull_requests_data)
+    repository_data = get_repo_data(repo)
+    save_repo_data(org_name, repo_name, repository_data)
