@@ -11,7 +11,7 @@ This repo contains the solution to [Scytale-excersis](https://github.com/Scytale
 - [Setting Up Virtual Environment](#setting-up-virtual-environment)
 - [Installing Dependencies](#installing-dependencies)
 - [Running the Project](#running-the-project)
-- [Additional Notes](#additional-notes)
+
 
 ## Prerequisites
 
@@ -54,12 +54,16 @@ source .venv/bin/activate
 
 The solution to the project was split in to 2 python files `extract.py` and `transform.py`
 
-1. `extract.py` pulls all repos from the organization github in addition with all pull request and saves the reulting data as a JSON.
+1. `extract.py` pulls all repos from the organization github in addition with all pull request and saves the reulting data as a JSON. run the following to extract all repo data form github orgnization
 
-2. `transform.py` reads all the the saved json data apply the need transformations per the description and saves the reuslting dataframe to as a parquet file.
+    ```
+    $ python extract.py
+    ```
 
+2. `transform.py` reads all the the saved json data apply the need transformations per the description and saves the reuslting dataframe to as a parquet file. run this to apply the needed transformation and save the parquet file.
+    ```
+    $ python transform.py
+    ```
 
-## Additional Notes
-For repos with no merged PRs, merged at is recorded as -1. 
 
 
