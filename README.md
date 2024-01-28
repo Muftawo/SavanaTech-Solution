@@ -57,12 +57,12 @@ The solution to the project was split in to 2 python files `extract.py` and `tra
 1. `extract.py` pulls all repos from the organization github in addition with all pull request and saves the reulting data as a JSON. run the following to extract all repo data form github orgnization
 
     ```
-    $ python extract.py
+    $ python src/extract.py
     ```
 
 2. `transform.py` reads all the the saved json data apply the need transformations per the description and saves the reuslting dataframe to as a parquet file. run this to apply the needed transformation and save the parquet file.
     ```
-    $ python transform.py
+    $ python src/transform.py
     ```
 
 
