@@ -32,7 +32,7 @@ df_transformed = df_transformed.withColumn(
 )
 
 #save resulting data as a parquet
-parquet_output_path = f"{org_name}/solution"
+parquet_output_path = f"{org_name}/solution.parquet"
 df_transformed.write.mode("overwrite").parquet(parquet_output_path)
 
 spark.stop()
