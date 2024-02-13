@@ -25,6 +25,7 @@ class Extract:
                 "title": pull_request.title,
                 "number": pull_request.number,
                 "state": pull_request.state,
+                "is_merged": pull_request.is_merged(),
                 "created_at": str(pull_request.created_at),
                 "updated_at": str(pull_request.updated_at),
             }

@@ -27,7 +27,7 @@ def transformer():
         # size of list is equal to nuber of prs
         F.size("pull_requests").alias("num_prs"),
         # count number of merges prs
-        F.size(F.expr("filter(pull_requests, pr -> pr.state == 'merged')")).alias(
+        F.size(F.expr("filter(pull_requests, pr -> pr.is_merged == true)")).alias(
             "num_prs_merged"
         ),
     )
