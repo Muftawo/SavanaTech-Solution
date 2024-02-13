@@ -25,8 +25,8 @@ Before you begin, ensure you have the following installed:
 1. Clone the repository:
 
     ```bash
-    git clone <repository_url>
-    cd <repository_directory>
+    git clone git@github.com:Muftawo/SavanaTech-Solution.git
+    cd SavanaTech-Solution
     ```
 
 2. Set up and activate a virtual environment:
