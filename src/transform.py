@@ -31,7 +31,7 @@ def transformer():
             "num_prs_merged"
         ),
         # date pr was merged at
-        F.expr("filter(pull_requests, pr -> pr.is_merged == true)")
+        F.col("pull_requests")
         .getField("merged_at")
         .getItem(0)
         .cast("date")
