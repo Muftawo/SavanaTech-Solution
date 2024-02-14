@@ -13,6 +13,7 @@ def setup_logging():
 
 
 def main() -> None:
+    setup_logging()
 
     org_name = "Scytale-exercise"
 
