@@ -30,6 +30,12 @@ def transformer():
         F.size(F.expr("filter(pull_requests, pr -> pr.is_merged == true)")).alias(
             "num_prs_merged"
         ),
+        # date pr was merged at
+        F.expr("filter(pull_requests, pr -> pr.is_merged == true)")
+        .getField("merged_at")
+        .getItem(0)
+        .cast("date")
+        .alias("merged_at"),
     )
 
     # add is_complaint field

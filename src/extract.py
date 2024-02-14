@@ -3,6 +3,7 @@ import json
 
 
 class Extract:
+
     def get_repo_data(repo: str) -> dict:
         """This function retreives all data from a public github repository passed to it
 
@@ -26,6 +27,7 @@ class Extract:
                 "number": pull_request.number,
                 "state": pull_request.state,
                 "is_merged": pull_request.is_merged(),
+                "merged_at": str(pull_request.merged_at),
                 "created_at": str(pull_request.created_at),
                 "updated_at": str(pull_request.updated_at),
             }
