@@ -3,6 +3,28 @@ import json
 
 
 class Extract:
+    
+    def get_organization_data(org: str)-> dict:
+        """retreives organizatioal level metrics
+
+        Parameters
+        ----------
+        org : string
+
+        Returns
+        -------
+        dict
+        """
+        
+        org_data = {
+            
+            "org_data":org.name,
+            "members":org.get_members(),
+            
+        }
+        
+        return org_data
+
 
     def get_repo_data(repo: str) -> dict:
         """This function retreives all data from a public github repository passed to it
