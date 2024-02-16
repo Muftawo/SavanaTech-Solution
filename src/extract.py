@@ -40,6 +40,7 @@ class Extract:
             "name": repo.name,
             "id": repo.id,
             "login": repo.owner.login,
+            "num_of_commits":repo.get_commits().totalCount,
         }
         prs = []
 
