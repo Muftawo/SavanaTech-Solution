@@ -6,8 +6,14 @@ from github import Github
 
 
 class Extract:
-    
-    def get_organization_data(org: str)-> dict:
+    def intialize_organization(org_name):
+        g = Github()
+        # g.rate_limiting()
+        org = g.get_organization(org_name)
+
+        return org
+
+    def get_organization_data(org: Type[Github]) -> dict:
         """retreives organizatioal level metrics
 
         Parameters
