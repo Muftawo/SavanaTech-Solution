@@ -26,10 +26,8 @@ class Extract:
         """
         
         org_data = {
-            
-            "org_data":org.name,
-            "members":org.get_members(),
-            
+            "org_data": org.name,
+            "members": [member for member in org.get_members()],
         }
         
         return org_data
