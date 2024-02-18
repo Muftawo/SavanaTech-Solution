@@ -102,3 +102,16 @@ class Extract:
         repo_path = f"{repo_folder}/data.json"
         with open(repo_path, "w") as json_file:
             json.dump(repository_data, json_file, indent=4)
+
+    def extract_and_save(org_name) -> None:
+
+        org = Extract.intialize_organization(org_name)
+        repositories = org.get_repos()
+
+        org_data = Extract.get_organization_data(org)
+        Extract.save_org_data(org, org_data)
+
+        for repo in repositories:
+            repo_name = repo.name
+            repository_data = Extract.get_repo_data(repo)
+            Extract.save_repo_data(org, repo_name, repository_data)
