@@ -24,14 +24,13 @@ class Extract:
         -------
         dict
         """
-        
+
         org_data = {
             "org_data": org.name,
             "members": [member for member in org.get_members()],
         }
-        
-        return org_data
 
+        return org_data
 
     def get_repo_data(repo: str) -> dict:
         """This function retreives all data from a public github repository passed to it
