@@ -1,0 +1,44 @@
+{
+    "org": "Scytale-exercise/scytale-repo3",
+    "name": "scytale-repo3",
+    "id": 721612130,
+    "login": "Scytale-exercise",
+    "pull_requests": [
+        {
+            "title": "avi pull request",
+            "number": 4,
+            "state": "closed",
+            "is_merged": true,
+            "merged_at": "2023-11-21 12:29:07+00:00",
+            "created_at": "2023-11-21 12:29:01+00:00",
+            "updated_at": "2023-11-21 12:29:07+00:00"
+        },
+        {
+            "title": "Feature/eva",
+            "number": 3,
+            "state": "closed",
+            "is_merged": true,
+            "merged_at": "2023-11-21 12:27:11+00:00",
+            "created_at": "2023-11-21 12:26:30+00:00",
+            "updated_at": "2023-11-21 12:27:12+00:00"
+        },
+        {
+            "title": "Update README.md",
+            "number": 2,
+            "state": "closed",
+            "is_merged": true,
+            "merged_at": "2023-11-21 12:25:14+00:00",
+            "created_at": "2023-11-21 12:25:09+00:00",
+            "updated_at": "2023-11-21 12:25:15+00:00"
+        },
+        {
+            "title": "Chore/ops 197/last fixes before publishing",
+            "number": 1,
+            "state": "closed",
+            "is_merged": true,
+            "merged_at": "2023-11-21 12:23:48+00:00",
+            "created_at": "2023-11-21 12:22:52+00:00",
+            "updated_at": "2023-11-21 12:23:48+00:00"
+        }
+    ]
+}
