@@ -1,5 +1,8 @@
-import os
 import json
+import os
+from typing import Type
+
+from github import Github
 
 
 class Extract:
