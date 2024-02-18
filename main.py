@@ -1,4 +1,5 @@
 import logging
+
 from src.extract import Extract
 from src.transform import transformer
 
@@ -16,11 +17,8 @@ def main() -> None:
 
     org_name = "Scytale-exercise"
 
-    
     logging.info("Begin data extraction...")
-    
     Extract.extract_and_save(org_name)
-   
     logging.info("Extraction completed !!")
 
     logging.info("Begin Trasnformation...")
