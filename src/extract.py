@@ -66,33 +66,38 @@ class Extract:
 
         return repo_data
 
-    def save_data(org: str, repo_name: str, repository_data: str) -> None:
+    def save_org_data(org, org_data) -> None:
+
+        org_name = org.name
+        org_folder = f"{org_name}"
+        if not os.path.exists(org_folder):
+            os.makedirs(org_folder)
+
+        org_path = f"{org_folder}/org_data.json"
+        with open(org_path, "w") as json_file:
+            json.dump(org_data, json_file, indent=4)
+
+    def save_repo_data(org: str, repo_name: str, repository_data: str) -> None:
         """saves data of a repository to a respective data path, each repository gets its own sub directory.
         dir structure
         Orgnaization -|--repo--data.json
                         -|--repo--data.json
         Args:
-            org_name (str): github organization 
+            org_name (str): github organization
             repo_name (str): repository name
             repository_data (str): _description_
         """
-        
+
         org_name = org.name
 
         org_folder = f"{org_name}"
         repo_folder = f"{org_name}/repos/{repo_name}"
-        
-        
 
         if not os.path.exists(org_folder):
             os.makedirs(org_folder)
-        
+
         if not os.path.exists(repo_folder):
             os.makedirs(repo_folder)
-        
-        with open(f"{org_folder}/org_data.json"):
-            json.dump(org, json_file, indent=4)
-
 
         repo_path = f"{repo_folder}/data.json"
         with open(repo_path, "w") as json_file:
