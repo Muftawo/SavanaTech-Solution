@@ -10,6 +10,7 @@ class Extract:
         g = Github()
         # g.rate_limiting()
         org = g.get_organization(org_name)
+        org.org_name = org_name
 
         return org
 
@@ -26,7 +27,7 @@ class Extract:
         """
 
         org_data = {
-            "org_data": org.name,
+            "org_data": org.org_name,
             "members": [member for member in org.get_members()],
         }
 
@@ -68,7 +69,7 @@ class Extract:
 
     def save_org_data(org, org_data) -> None:
 
-        org_name = org.name
+        org_name = org.org_name
         org_folder = f"{org_name}"
         if not os.path.exists(org_folder):
             os.makedirs(org_folder)
@@ -88,7 +89,7 @@ class Extract:
             repository_data (str): _description_
         """
 
-        org_name = org.name
+        org_name = org.org_name
 
         org_folder = f"{org_name}"
         repo_folder = f"{org_name}/repos/{repo_name}"
@@ -107,6 +108,7 @@ class Extract:
 
         org = Extract.intialize_organization(org_name)
         repositories = org.get_repos()
+        print(">>>>>>", org.org_name)
 
         org_data = Extract.get_organization_data(org)
         Extract.save_org_data(org, org_data)
