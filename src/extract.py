@@ -50,7 +50,11 @@ class Extract:
             "name": repo.name,
             "id": repo.id,
             "login": repo.owner.login,
-            "num_of_commits":repo.get_commits().totalCount,
+            "languages": repo.get_languages(),
+            # "num_of_commits": repo.get_commits().totalCount,
+            "num stars": repo.stargazers_count,
+            "open_issues": repo.get_issues(state="open").totalCount,
+            "forks": repo.get_forks().totalCount,
         }
         prs = []
 
