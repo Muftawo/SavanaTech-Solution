@@ -14,7 +14,7 @@ class Extract:
 
         return org
 
-    def get_organization_data(org: Type[Github]) -> dict:
+    def get_organization_data(org: Type[Github], repos) -> dict:
         """retreives organizatioal level metrics
 
         Parameters
@@ -28,7 +28,10 @@ class Extract:
 
         org_data = {
             "org_data": org.org_name,
-            "members": [member for member in org.get_members()],
+            "members": org.get_members().totalCount,
+            # "outside_collaborators":  org.get_outside_collaborators().totalCount,
+            "flowers": org.followers,
+            "Num Repos": repos.totalCount,
         }
 
         return org_data
