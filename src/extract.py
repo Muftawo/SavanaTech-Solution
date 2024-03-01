@@ -73,7 +73,7 @@ class Extract:
     def save_org_data(org, org_data) -> None:
 
         org_name = org.org_name
-        org_folder = f"{org_name}"
+        org_folder = f"data/{org_name}"
         if not os.path.exists(org_folder):
             os.makedirs(org_folder)
 
@@ -94,8 +94,8 @@ class Extract:
 
         org_name = org.org_name
 
-        org_folder = f"{org_name}"
-        repo_folder = f"{org_name}/repos/{repo_name}"
+        org_folder = f"data/{org_name}"
+        repo_folder = f"data/{org_name}/repos/{repo_name}"
 
         if not os.path.exists(org_folder):
             os.makedirs(org_folder)
