@@ -117,7 +117,7 @@ class Extract:
         repositories = org.get_repos()
         print(">>>>>>", org.org_name)
 
-        org_data = Extract.get_organization_data(org)
+        org_data = Extract.get_organization_data(org, repositories)
         Extract.save_org_data(org, org_data)
 
         for repo in repositories:
