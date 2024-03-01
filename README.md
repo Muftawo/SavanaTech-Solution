@@ -1,7 +1,6 @@
-# SavanaTech-Solution
+# GitMerica
 
-This repo contains the solution to [Scytale-excersis](https://github.com/Scytale-exercise/scytale-repo2/blob/main/README.md)
-
+Review insights from your organiztion's Github acticity, gain a deep understanding on repositries, member activity and languages.
 
 
 # Table of Contents
@@ -25,8 +24,8 @@ Before you begin, ensure you have the following installed:
 1. Clone the repository:
 
     ```bash
-    git clone git@github.com:Muftawo/SavanaTech-Solution.git
-    cd SavanaTech-Solution
+    git clone git@github.com:Muftawo/GitMetrica.git
+    cd GitMetrica
     ```
 
 2. Set up and activate a virtual environment:
