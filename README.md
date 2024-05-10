@@ -62,6 +62,6 @@ The solution to the project has 3 python files `extract.py` , `transform.py` and
     ```
     $ python main.py
     ```
-
+4. delete this line 
 
 
